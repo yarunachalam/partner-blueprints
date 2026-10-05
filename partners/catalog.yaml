@@ -9,3 +9,5 @@ spec:
   description: Community and partner-contributed blueprints for SUSE AI Factory.
   blueprints:
     - name: example-chatbot
+      version: 1.0.0
+      path: partners/blueprints/example-chatbot-1.0.0.yaml
