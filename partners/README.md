@@ -1,19 +1,14 @@
-# Partners
+# Example partner
 
-Each partner owns one subfolder here. Blueprints live under
-`partners/<partner>/blueprints/` as one `kind: Blueprint` file per version:
+This folder shows the exact shape a partner submission takes. It is **not** a
+real partner and is excluded from the aggregate `partners/catalog.yaml`, but CI validates
+it with the same rules, so it always stays correct.
 
 ```
-partners/
-└── acme/
-    └── blueprints/
-        ├── acme-rag-1.0.0.yaml
-        └── acme-rag-1.1.0.yaml
+example/
+└── blueprints/
+    └── example-chatbot-1.0.0.yaml   # one kind: Blueprint per file
 ```
 
-- A `blueprint-name` may only be owned by **one** partner folder (CI enforces this).
-- Multiple versions of the same blueprint are fine — one file each.
-- Every PR is reviewed and merged by SUSE maintainers.
-
-See the top-level [`example/`](../example/) for a working template and
-[`CONTRIBUTING.md`](../CONTRIBUTING.md) for the full flow.
+To onboard, copy this layout to `partners/<your-partner>/` and open a pull
+request. See [CONTRIBUTING.md](../CONTRIBUTING.md).
