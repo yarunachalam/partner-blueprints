@@ -30,6 +30,20 @@ spec:
     values. Keep the description accurate: prerequisites (StorageClass,
     cert-manager, GPUs), exposed endpoints, and any licensing notes belong here.
   components:
+    - chartName: ollama
+      chartRepo: application-collection
+      chartVersion: 0.58.0
+      values:
+        image:
+          registry: dp.apps.rancher.io
+          repository: containers/ollama
+        persistentVolume:
+          enabled: true
+          size: 30Gi
+          storageClass: local-path
+        service:
+          type: ClusterIP
+          port: 11434
     - chartName: open-webui
       chartRepo: application-collection
       chartVersion: 8.19.1
@@ -37,6 +51,10 @@ spec:
         image:
           registry: dp.apps.rancher.io
           repository: containers/open-webui
+        ollama:
+          enabled: false
+        ollamaUrls:
+          - http://ollama:11434
         persistence:
           enabled: true
           size: 20Gi
